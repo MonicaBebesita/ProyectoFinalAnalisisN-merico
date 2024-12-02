@@ -99,21 +99,37 @@ namespace integracion{
 				os << std::setw(15) << y[i] << endl;
 			}
 		}
-			
 			/**
-			* @brief Calcula el error relativo porcentual dado un valor real conocido.
-			* @param valor_real Valor exacto o de referencia para comparar.
-			* @return Error relativo porcentual.
+			* @brief Calcula el error teórico basado en la cuarta derivada.
+			* @param f4_str String con la expresión de la cuarta derivada de la función.
+			* @return Error teórico calculado.
 			*/
-		double calcular_error(double valor_real) {
-				if (valor_real == 0) {
-					throw std::invalid_argument("El valor real no puede ser cero para calcular el error relativo porcentual.");
+			double calcular_error_teorico(const string& f4_str, int precision = 1000) {
+				// Evaluador de expresiones para la cuarta derivada
+				expression f4(f4_str);
+				
+				// Dividir el intervalo en "precision" subintervalos
+				double a = x[0];
+				double b = x.back();
+				double h = (b - a) / precision;
+				double max_f4 = fabs(f4(a)); // Evaluar en el primer punto
+				
+				// Evaluar la cuarta derivada en cada subintervalo
+				for (int i = 1; i <= precision; ++i) {
+					double xi = a + i * h;
+					max_f4 = std::max(max_f4, fabs(f4(xi)));
 				}
 				
-				double resultado_actual = this->calcular();
+				// Calcular el error teórico
+				int n = x.size() - 1; // n = cantidad de segmentos
+				return (std::pow(b - a, 5) / (180 * std::pow(n, 4))) * max_f4;
+			}
+			
+			
 				
-				return fabs((valor_real - resultado_actual) / valor_real) * 100.0;
-		}
+		
+			
+			
 				
 	private:
 					vector<double>x; // Valores de la variable independiente

@@ -99,18 +99,28 @@ namespace integracion {
 			}
 		}
 		
-		/**
-		* @brief Calcula el error relativo porcentual dado un valor real conocido
-		* @param valor_real Valor exacto o de referencia para comparar
-		* @return Error relativo porcentual
-		*/
-		double calcular_error(double valor_real) {
-			if (valor_real == 0) {
-				throw std::invalid_argument("El valor real no puede ser cero para calcular el error relativo porcentual.");
+		double calcular_error_teorico(const string& f4_str, int precision = 1000) {
+			// Evaluador de expresiones para la cuarta derivada
+			expression f4(f4_str);
+			
+			// Dividir el intervalo en "precision" subintervalos
+			double a = x[0];
+			double b = x.back();
+			double h = (b - a) / precision;
+			double max_f4 = fabs(f4(a)); // Evaluar en el primer punto
+			
+			// Evaluar la cuarta derivada en cada subintervalo
+			for (int i = 1; i <= precision; ++i) {
+				double xi = a + i * h;
+				max_f4 = std::max(max_f4, fabs(f4(xi)));
 			}
 			
-			double resultado_actual = this->calcular();
-			return fabs((valor_real - resultado_actual) / valor_real) * 100.0;
+			// Calcular el error teórico
+			int n = x.size() - 1; // n = cantidad de segmentos
+			if (n % 3 != 0) {
+				throw std::invalid_argument("El número de segmentos debe ser múltiplo de 3 para Simpson 3/8.");
+			}
+			return (std::pow(b - a, 5) / (80 * std::pow(n, 4))) * max_f4;
 		}
 		
 	private:
