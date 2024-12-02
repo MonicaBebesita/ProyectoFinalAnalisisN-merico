@@ -8,34 +8,7 @@
 using std::cout;
 using std::endl;
 
-void caso_1_trapecio(){
-	using integracion::trapecio;
-	
-	string f_str = "e^(x^2)";
-	double a = 0.0f;
-	double b = 1.0f;
-	int n = 5;
-	
-	// Crear la instancia del trapecio
-	trapecio t(f_str,a , b , n);
-	
-	// Imprimir tabla de datos
-	t.imprimir_tabla(cout);
-	
-	// Calcular el valor de la integral
-	double valor  = t.calcular();
-	
-	// Imprimir el resultado por pantalla
-	cout << "El valor de la integral de "
-		<< f_str
-		<< " en el intervalo ["
-		<< a
-		<< ","
-		<< b
-		<< "] es:"
-		<< valor
-		<< endl;
-}
+
 
 
 	void caso_1_simpson38(){

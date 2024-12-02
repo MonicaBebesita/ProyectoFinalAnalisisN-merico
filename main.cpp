@@ -16,10 +16,10 @@ int main (int argc, char *argv[]) {
 	// Caso 1 - Método del trapecio
 	//caso_1_trapecio();
 	//caso_1_simpson38();
-	caso_1_simpson13();
+	//caso_1_simpson13();
 	//caso_1_romberg();
 	
-/**	int opcion = 0;
+	int opcion = 0;
 	
 	do {
 		mostrarMenu();
@@ -42,7 +42,7 @@ int main (int argc, char *argv[]) {
 			break;
 		}
 	} while (opcion != 3);
-**/
+
 	return 0;
 }
 
