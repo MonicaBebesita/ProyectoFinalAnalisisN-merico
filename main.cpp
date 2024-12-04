@@ -113,10 +113,10 @@ void leerDatos(int tipo){
 	do{
 		cout<<"Ingrese el paso (debe ser mayor a 0 y menor a 1):";
 		cin >> h; 
-		if(h<0 || h>1){
+		if(h<=0.0f || h>=1.0f){
 			cout<<"El paso es invalido."<<endl;
 		}
-	}while(h<0 || h>1); 
+	}while(h<=0.0f || h>=1.0f); 
 	
 	system("clear");
 	if(tipo==1){
