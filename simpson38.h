@@ -1,3 +1,12 @@
+/**
+* @file
+* @brief Contiene de las rutinas de metodo simpson 3/8
+* @author Monica alejandra Castellanos
+* @author Ashlee Vanessa Campaz
+* @copyright MIT License
+*/
+
+
 #ifndef SIMPSON38_H
 #define SIMPSON38_H
 

@@ -2,15 +2,12 @@
 
 /**
 * @file
-* @brief Metodo de Romberg
+* @brief Contiene de las rutinas del  metodo romberg
+* @author Monica alejandra Castellanos
+* @author Ashlee Vanessa Campaz
+* @copyright MIT License
 */
 
-/**
-* @brief
-* @param
-* @return
-*/
-/*!< */
 
 #ifndef ROMBERG_H
 #define ROMBERG_H

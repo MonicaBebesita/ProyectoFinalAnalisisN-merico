@@ -1,7 +1,8 @@
 /**
 * @file
-* @brief Pueba de los metodos de integracion
-* @author 
+* @brief Contiene los menus 
+* @author Monica alejandra Castellanos
+* @author Ashlee Vanessa Campaz
 * @copyright MIT License
 */
 
@@ -12,12 +13,11 @@ using namespace std;
 void esperar();
 void mostrarMenu();
 void mostrarSubMenuIntegracion();
+void menuDiferenciacion();
+void leerDatos(int tipo);
+
 int main (int argc, char *argv[]) {
-	// Caso 1 - Método del trapecio
-	//caso_1_trapecio();
-	//caso_1_simpson38();
-	//caso_1_simpson13();
-	//caso_1_romberg();
+
 	
 	int opcion = 0;
 	
@@ -30,9 +30,8 @@ int main (int argc, char *argv[]) {
 		case 1: // Submenú Integración
 			mostrarSubMenuIntegracion();
 			break;
-		case 2: // Derivación (aquí puedes agregar lógica en el futuro)
-			cout << "Opción de derivacion no implementada aun.\n";
-			esperar();
+		case 2: // submenu Diferenciacion
+			menuDiferenciacion();
 			break;
 		case 3: // Salir
 			cout << "Saliendo del programa...\n";
@@ -96,13 +95,77 @@ void mostrarSubMenuIntegracion() {
 		}
 	} while (opcion != 4);
 }
+
+void leerDatos(int tipo){
+	cout<<"----Calcular derivadas de funcion e^x*sen(x)----\n"<<endl;
+	int orden; 
+	double x;
+	double h; 
+	do{
+		cout<<"Ingrese el orden (1 a 4):";
+		cin >> orden;
+		if(orden>4 || orden<1){
+			cout<<"El orden es invalido.\n"<<endl;
+		}
+	}while(orden>4 || orden<1);
+	cout<<"Ingrese el valor de x:";
+	cin>> x;
+	do{
+		cout<<"Ingrese el paso (debe ser mayor a 0 y menor a 1):";
+		cin >> h; 
+		if(h<0 || h>1){
+			cout<<"El paso es invalido."<<endl;
+		}
+	}while(h<0 || h>1); 
 	
+	system("clear");
+	if(tipo==1){
+		caso_primeras_diferencias_general(x, h, orden);
+	}
+	else{
+		caso_segundas_diferencias_general(x, h,orden);
+	}
+} 	
+	
+void menuDiferenciacion(){
+	
+	int opcion;
+	do{
+		system("clear");
+		cout<<"----MENU DIFERENCIACION---\n"<<
+			"1.Primeras diferencias\n"<<
+			"2.Segundas diferencias\n"<<
+			"3.Volver atras\ningrese su opcion:";
+		cin>> opcion;
+		
+		switch(opcion){
+		case 1:
+			system("clear");
+			leerDatos(1);
+			esperar();
+			break;
+		case 2:
+			system("clear");
+			leerDatos(2);
+			esperar();
+			break;
+		case 3:
+			break;
+		default:
+			cout<<"Opcion invalida."<<endl; 
+		}
+		
+	}while(opcion!=3);
+	
+}
+
 void esperar() {
 	while (cin.get() != '\n');// Limpia el buffer
-	cout << "Presiona cualquier tecla para continuar...";
+	cout << "Presiona enter para continuar...";
 	cin.get();  // Espera a que el usuario presione una tecla
 }
-	
+
+
 	
 	
 
