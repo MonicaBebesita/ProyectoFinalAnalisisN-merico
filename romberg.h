@@ -2,7 +2,7 @@
 
 /**
 * @file
-* @brief Contiene de las rutinas del  metodo romberg
+* @brief Contiene las rutinas del  metodo romberg
 * @author Monica alejandra Castellanos
 * @author Ashlee Vanessa Campaz
 * @copyright MIT License

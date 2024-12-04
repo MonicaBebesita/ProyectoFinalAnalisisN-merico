@@ -1,7 +1,7 @@
 
 /**
 * @file
-* @brief Contiene de las rutinas de metodo segundas diferencias
+* @brief Contiene las rutinas de metodo segundas diferencias
 * @author Monica alejandra Castellanos
 * @author Ashlee Vanessa Campaz
 * @copyright MIT License
@@ -63,7 +63,9 @@ namespace diferenciacion{
 			
 			return valor;
 		}
-			
+			/**
+			@brief Imprime toda la informacion de la derivada
+			*/
 			void imprimir(){
 				
 				if(estado){
@@ -91,7 +93,10 @@ namespace diferenciacion{
 				cout<<"--------------------------------------------------------------------------------------"<<endl;
 			}	
 	private:
-					
+		/**
+		@brief Imprime la tabla de datos de una derivada hacia delante
+		@param os metodo de salida
+		*/
 		void imprimir_tabla_adelante(ostream & os){
 			using std::ceil;
 			os<<std::setw(25)<<"-----TABLA DE DATOS DERIVADA HACIA ADELANTE------"<<endl; 
@@ -103,6 +108,10 @@ namespace diferenciacion{
 				
 			}
 		}
+		/**
+		@brief Imprime la tabla de datos de una derivada central
+		@param os metodo de salida
+		*/
 		void imprimir_tabla_central(ostream & os){
 			using std::ceil;
 			os<<std::setw(25)<<"-----TABLA DE DATOS DERIVADA CENTRAL------"<<endl; 
@@ -118,7 +127,10 @@ namespace diferenciacion{
 				} 
 			}
 		}	
-		
+		/**
+		@brief Imprime la tabla de datos de una derivada hacia atras
+		@param os metodo de salida
+		*/	
 		void imprimir_tabla_atras(ostream & os){
 			using std::ceil;
 			os<<std::setw(25)<<"-----TABLA DE DATOS DERIVADA HACIA ATRAS------"<<endl; 
@@ -129,7 +141,10 @@ namespace diferenciacion{
 					<<std::setw(15)<<f(x - i*h)<<endl; 
 					
 			}
-		}	
+		}
+		/**
+		@brief Calcula una derivada hacia adelante 
+		*/
 		double calcular_hacia_delante(){
 			double x1 = x + h;
 			double x2 = x + 2*h; 
@@ -162,7 +177,9 @@ namespace diferenciacion{
 			}
 			return valor; 
 		} 
-				
+		/**
+		@brief Calcula una derivada central
+		*/
 		double calcular_central(){
 			double x1= x +h;
 			double x_1 = x-h;
@@ -196,7 +213,9 @@ namespace diferenciacion{
 			}
 			return valor;
 		}
-					
+		/**
+		@brief Calcula una derivada hacia atras
+		*/
 		double calcular_hacia_atras(){
 			double x_5 = x - 5*h;
 			double x_4 = x - 4*h;

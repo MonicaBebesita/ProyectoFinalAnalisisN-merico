@@ -1,6 +1,6 @@
 /**
 * @file
-* @brief Contiene de las rutinas de metodol de trapecio 
+* @brief Contiene las rutinas de metodo de trapecio 
 * @author Monica alejandra Castellanos
 * @author Ashlee Vanessa Campaz
 * @copyright MIT License

@@ -1,6 +1,6 @@
 /**
 * @file
-* @brief Contiene de las rutinas de metodo simpson 1/3
+* @brief Contiene las rutinas de metodo simpson 1/3
 * @author Monica alejandra Castellanos
 * @author Ashlee Vanessa Campaz
 * @copyright MIT License

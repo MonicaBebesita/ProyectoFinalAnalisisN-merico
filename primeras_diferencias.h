@@ -1,6 +1,6 @@
 /**
 * @file
-* @brief Contiene de las rutinas de metodo primeras diferencias
+* @brief Contiene las rutinas de metodo primeras diferencias
 * @author Monica alejandra Castellanos
 * @author Ashlee Vanessa Campaz
 * @copyright MIT License
@@ -33,7 +33,7 @@ namespace diferenciacion{
 		}
 		
 		/**
-		@brief Crea una instancia para calcular primeras diferencias
+		@brief Calcula la derivada de f_str en x
 		@param x valor en el cual se evalua la derivada
 		@param h paso
 		@param tipo debe ser -1,0,1 que representan a la diferenciacion 
@@ -63,6 +63,9 @@ namespace diferenciacion{
 			return valor;
 		}
 		
+		/**
+		@brief Imprime toda la informacion de la derivada
+		*/
 		void imprimir(){
 			
 			if(estado){
@@ -91,6 +94,10 @@ namespace diferenciacion{
 		}	
 			
 	private:
+		/**
+		@brief Imprime la tabla de datos de una derivada hacia delante
+		@param os metodo de salida
+		*/
 		void imprimir_tabla_adelante(ostream & os){
 			using std::ceil;
 			os<<std::setw(25)<<"-----TABLA DE DATOS DERIVADA HACIA ADELANTE------"<<endl; 
@@ -102,6 +109,10 @@ namespace diferenciacion{
 				
 			}
 		}
+		/**
+		@brief Imprime la tabla de datos de una derivada central
+		@param os metodo de salida
+		*/
 		void imprimir_tabla_central(ostream & os){
 			using std::ceil;
 			os<<std::setw(25)<<"-----TABLA DE DATOS DERIVADA CENTRAL------"<<endl; 
@@ -117,7 +128,11 @@ namespace diferenciacion{
 						<<std::setw(15)<<f(x + ceil((orden/2.0f))*h - i*h -h)<<endl; 
 				} 
 			}
-		}		
+		}	
+		/**
+		@brief Imprime la tabla de datos de una derivada hacia atras
+		@param os metodo de salida
+		*/	
 		void imprimir_tabla_atras(ostream & os){
 			using std::ceil;
 			os<<std::setw(25)<<"-----TABLA DE DATOS DERIVADA HACIA ATRAS------"<<endl; 
@@ -129,6 +144,9 @@ namespace diferenciacion{
 				
 			}
 		}
+		/**
+		@brief Calcula una derivada hacia adelante 
+		*/
 		double calcular_hacia_delante(){
 			double x1 = x + h;
 			double x2 = x + 2*h; 
@@ -159,7 +177,9 @@ namespace diferenciacion{
 			}
 			return valor; 
 		} 
-				
+		/**
+		@brief Calcula una derivada central
+		*/
 		double calcular_central(){
 			double x1= x +h;
 			double x_1 = x-h;
@@ -189,7 +209,9 @@ namespace diferenciacion{
 			}
 			return valor;
 		}
-		
+		/**
+		@brief Calcula una derivada hacia atras
+		*/
 		double calcular_hacia_atras(){
 			double x_4 = x - 4*h;
 			double x_3 = x - 3*h;
